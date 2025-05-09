@@ -20,7 +20,7 @@
                 </div>
                 <div>
                     <h3 class="text-gray-500 text-sm">Total Loyers</h3>
-                    <p class="text-xl font-bold text-gray-800">{{ number_format($totalLoyers, 2) }} €</p>
+                    <p class="text-xl font-bold text-gray-800">{{ number_format($totalLoyers, 2) }} Franc CFA</p>
                 </div>
             </div>
 
@@ -33,7 +33,7 @@
                 </div>
                 <div>
                     <h3 class="text-gray-500 text-sm">Total Charges</h3>
-                    <p class="text-xl font-bold text-gray-800">{{ number_format($totalCharges, 2) }} €</p>
+                    <p class="text-xl font-bold text-gray-800">{{ number_format($totalCharges, 2) }} Franc CFA</p>
                 </div>
             </div>
 
@@ -76,7 +76,7 @@
                         <li class="py-3">
                             <div class="flex justify-between">
                                 <span class="text-sm text-gray-600">Transaction {{ $i + 1 }}</span>
-                                <span class="text-sm font-semibold text-gray-800">{{ rand(50, 500) }} €</span>
+                                <span class="text-sm font-semibold text-gray-800">{{ rand(50, 500) }} Franc CFA</span>
                             </div>
                         </li>
                     @endfor
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             if (label) {
                                 label += ': ';
                             }
-                            label += context.formattedValue + ' €';
+                            label += context.formattedValue + ' Franc CFA';
                             return label;
                         }
                     }
@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     beginAtZero: true,
                     ticks: {
                         callback: function(value) {
-                            return value + ' €';
+                            return value + ' Franc CFA';
                         }
                     }
                 }
@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 tooltip: {
                     callbacks: {
                         label: function(context) {
-                            return context.formattedValue + ' €';
+                            return context.formattedValue + ' Franc CFA';
                         }
                     }
                 }
