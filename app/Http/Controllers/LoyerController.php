@@ -14,7 +14,7 @@ class LoyerController extends Controller
     public function index()
     {
         $loyers = Loyer::with('user')->paginate(10);
-        return view('loyers.index', compact('loyers'));
+        return view('admin.loyers.index', compact('loyers'));
     }
 
     /**
@@ -23,7 +23,7 @@ class LoyerController extends Controller
     public function create()
     {
         $users = User::all();
-        return view('loyers.create', compact('users'));
+        return view('admin.loyers.create', compact('users'));
     }
 
     /**
@@ -59,7 +59,7 @@ class LoyerController extends Controller
     public function show(Loyer $loyer)
     {
         $loyer->load(['charges', 'transactions']);
-        return view('loyers.show', compact('loyer'));
+        return view('admin.loyers.show', compact('loyer'));
     }
 
     /**
@@ -68,7 +68,7 @@ class LoyerController extends Controller
     public function edit(Loyer $loyer)
     {
         $users = User::all();
-        return view('loyers.edit', compact('loyer', 'users'));
+        return view('admin.loyers.edit', compact('loyer', 'users'));
     }
 
     /**

@@ -14,7 +14,7 @@ class ChargeController extends Controller
     public function index()
     {
         $charges = Charge::with('loyer')->paginate(10);
-        return view('charges.index', compact('charges'));
+        return view('admin.charges.index', compact('charges'));
     }
 
     /**
@@ -23,7 +23,7 @@ class ChargeController extends Controller
     public function create()
     {
         $loyers = Loyer::all();
-        return view('charges.create', compact('loyers'));
+        return view('admin.charges.create', compact('loyers'));
     }
 
     /**
@@ -52,7 +52,7 @@ class ChargeController extends Controller
     public function show(Charge $charge)
     {
         $charge->load('loyer');
-        return view('charges.show', compact('charge'));
+        return view('admin.charges.show', compact('charge'));
     }
 
     /**
@@ -61,7 +61,7 @@ class ChargeController extends Controller
     public function edit(Charge $charge)
     {
         $loyers = Loyer::all();
-        return view('charges.edit', compact('charge', 'loyers'));
+        return view('admin.charges.edit', compact('charge', 'loyers'));
     }
 
     /**

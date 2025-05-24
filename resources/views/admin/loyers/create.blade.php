@@ -5,7 +5,7 @@
     <div class="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6">
         <h1 class="text-3xl font-bold text-gray-800 mb-6">Créer un Nouveau Loyer</h1>
         
-        <form action="{{ route('loyers.store') }}" method="POST" class="space-y-6">
+        <form action="{{ route('admin.loyers.store') }}" method="POST" class="space-y-6">
             @csrf
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -85,7 +85,7 @@
             </div>
 
             <div class="flex justify-end space-x-4">
-                <a href="{{ route('loyers.index') }}" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
+                <a href="{{ route('admin.loyers.index') }}" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
                     Annuler
                 </a>
                 <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">

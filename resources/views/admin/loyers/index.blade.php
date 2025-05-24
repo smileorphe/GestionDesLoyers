@@ -4,7 +4,7 @@
 <div class="w-full h-full p-4">
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-3xl font-bold text-gray-300">Liste des Loyers</h1>
-        <a href="{{ route('loyers.create') }}" class="button">
+        <a href="{{ route('admin.loyers.create') }}" class="button">
             <span class="button__text" style="font-size: 13px;margin-left: -25px;">Ajouter un Loyer</span>
             <span class="button__icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg">
@@ -71,13 +71,13 @@
                         </td>
                         <td class="px-5 py-5 border-b border-gray-700 bg-black text-sm">
                             <div class="flex space-x-2">
-                                <a href="{{ route('loyers.show', $loyer->id) }}" class="text-blue-400 hover:text-blue-600">
+                                <a href="{{ route('admin.loyers.show', $loyer->id) }}" class="text-blue-400 hover:text-blue-600">
                                     <i class="fas fa-eye"></i>
                                 </a>
-                                <a href="{{ route('loyers.edit', $loyer->id) }}" class="text-yellow-400 hover:text-yellow-600">
+                                <a href="{{ route('admin.loyers.edit', $loyer->id) }}" class="text-yellow-400 hover:text-yellow-600">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <form action="{{ route('loyers.destroy', $loyer->id) }}" method="POST" class="inline">
+                                <form action="{{ route('admin.loyers.destroy', $loyer->id) }}" method="POST" class="inline">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="noselect">

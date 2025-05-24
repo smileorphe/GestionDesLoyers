@@ -6,7 +6,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('welcome') }}">
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                     </a>
                 </div>
@@ -16,14 +16,29 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('loyers.index')" :active="request()->routeIs('loyers.*')">
+                    <x-nav-link :href="route('admin.loyers.index')" :active="request()->routeIs('admin.loyers.*')">
                         {{ __('Loyers') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('charges.index')" :active="request()->routeIs('charges.*')">
+                    <x-nav-link :href="route('admin.charges.index')" :active="request()->routeIs('admin.charges.*')">
                         {{ __('Charges') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('transactions.index')" :active="request()->routeIs('transactions.*')">
-                        {{ __('Transactions') }}
+                    <x-nav-link :href="route('admin.factures.index')" :active="request()->routeIs('admin.factures.*')">
+                        {{ __('Factures') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('admin.messages.index')" :active="request()->routeIs('admin.messages.*')">
+                        <span class="relative">
+                            {{ __('Messages') }}
+                            @php
+                                $unreadCount = \App\Models\Message::where('to_user_id', auth()->id())
+                                    ->where('is_read', false)
+                                    ->count();
+                            @endphp
+                            @if($unreadCount > 0)
+                                <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                                    {{ $unreadCount }}
+                                </span>
+                            @endif
+                        </span>
                     </x-nav-link>
                 </div>
             </div>
@@ -44,8 +59,16 @@
                     </x-slot>
 
                     <x-slot name="content">
+                        <x-dropdown-link :href="route('welcome')">
+                            {{ __('Accueil') }}
+                        </x-dropdown-link>
+                        
+                        <x-dropdown-link :href="route('dashboard.redirect')">
+                            {{ __('Tableau de bord') }}
+                        </x-dropdown-link>
+                        
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
+                            {{ __('Profil') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->

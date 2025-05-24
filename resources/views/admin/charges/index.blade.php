@@ -4,7 +4,7 @@
 <div class="w-full h-full p-4">
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-3xl font-bold text-gray-300">Ajouter une Charge</h1>
-        <a href="{{ route('charges.create') }}" class="button">
+        <a href="{{ route('admin.charges.create') }}" class="button">
             <span class="button__text" style="font-size: 12px;margin-left: -26px;">Ajouter une Charge</span>
             <span class="button__icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg">
@@ -61,18 +61,18 @@
                             </td>
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <div class="flex space-x-2">
-                                    <a href="{{ route('charges.show', $charge) }}" class="text-blue-600 hover:text-blue-900">
+                                    <a href="{{ route('admin.charges.show', $charge->id) }}" class="text-blue-400 hover:text-blue-600">
                                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                             <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
                                             <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path>
                                         </svg>
                                     </a>
-                                    <a href="{{ route('charges.edit', $charge) }}" class="text-green-600 hover:text-green-900">
+                                    <a href="{{ route('admin.charges.edit', $charge->id) }}" class="text-yellow-400 hover:text-yellow-600">
                                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                             <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
                                         </svg>
                                     </a>
-                                    <form action="{{ route('charges.destroy', $charge) }}" method="POST" class="inline-block">
+                                    <form action="{{ route('admin.charges.destroy', $charge->id) }}" method="POST" class="inline-block">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette charge ?')">

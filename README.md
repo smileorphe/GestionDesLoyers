@@ -44,18 +44,98 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 - **[Redberry](https://redberry.international/laravel-development/)**
 - **[Active Logic](https://activelogic.com)**
 
-## Contributing
+# Gestion Des Loyers
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Application web de gestion immobilière permettant de suivre les loyers, les charges et les transactions pour les propriétaires et gestionnaires immobiliers.
 
-## Code of Conduct
+## 🎨 Charte Graphique
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Couleurs
 
-## Security Vulnerabilities
+- **Bleu Principal**: `#3B82F6` (bg-blue-500)
+- **Vert**: `#10B981` (bg-green-500)
+- **Violet**: `#8B5CF6` (bg-purple-500)
+- **Gris Fond**: `#F3F4F6` (bg-gray-100)
+- **Blanc**: `#FFFFFF` (bg-white)
+- **Texte Principal**: `#1F2937` (text-gray-800)
+- **Texte Secondaire**: `#4B5563` (text-gray-600)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Typographie
 
-## License
+- **Police principale**: Inter (via Tailwind CSS)
+- **Tailles de texte**:
+  - Titres: `text-3xl` (1.875rem)
+  - Sous-titres: `text-xl` (1.25rem)
+  - Texte courant: `text-base` (1rem)
+  - Texte petit: `text-sm` (0.875rem)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Composants
+
+#### Cartes
+```css
+Classe: bg-white rounded-lg shadow-md p-6
+```
+- Fond blanc
+- Coins arrondis (large)
+- Ombre moyenne
+- Padding interne de 1.5rem
+
+#### Boutons
+```css
+Classe: px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600
+```
+- Padding horizontal: 1rem
+- Padding vertical: 0.5rem
+- Fond bleu avec effet hover plus foncé
+- Texte blanc
+- Coins arrondis (medium)
+
+#### Icônes
+- Utilisation de **Heroicons** (inclus dans Tailwind CSS)
+- Taille standard: 24x24px (`w-6 h-6`)
+
+## 📱 Interfaces Principales
+
+### 1. Tableau de Bord
+
+**Fonctionnalités** :
+- Vue d'ensemble des statistiques clés
+- Graphiques de suivi mensuel
+- Liste des dernières transactions
+
+**Composants** :
+- Cartes de statistiques avec icônes
+- Graphique ChartJS pour les données mensuelles
+- Tableau responsive pour les transactions
+
+### 2. Gestion des Loyers
+
+**Fonctionnalités** :
+- Liste des loyers avec filtres
+- Formulaire d'ajout/modification
+- Suivi des paiements
+
+**Comportements** :
+- Validation des formulaires côté client et serveur
+- Confirmation pour les actions importantes
+- Tri dynamique des données
+
+### 3. Gestion des Charges
+
+**Fonctionnalités** :
+- Catégorisation des charges
+- Suivi des dépenses
+- Rapports mensuels
+
+## 🚀 Installation
+
+1. Cloner le projet
+2. Installer les dépendances : `composer install && npm install`
+3. Configurer le fichier `.env`
+4. Générer la clé : `php artisan key:generate`
+5. Lancer les migrations : `php artisan migrate`
+6. Compiler les assets : `npm run dev`
+
+## 📝 License
+
+Ce projet est sous licence [MIT](https://opensource.org/licenses/MIT).

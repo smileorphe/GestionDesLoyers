@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\User;
 use App\Models\Charge;
 use App\Models\Transaction;
+use App\Models\Bien;
 
 class Loyer extends Model
 {
@@ -31,6 +32,11 @@ class Loyer extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+    
+    public function bien()
+    {
+        return $this->belongsTo(Bien::class, 'bien_id');
     }
 
     public function charges()

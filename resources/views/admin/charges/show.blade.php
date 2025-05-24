@@ -43,7 +43,7 @@
         
         </div>
             <div class="flex space-x-4 mt-8">
-                <a href="{{ route('charges.edit', $charge->id) }}" class="button">
+                <a href="{{ route('admin.charges.edit', $charge->id) }}" class="button">
                     <span class="button__text">Modifier</span>
                     <span class="button__icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg">
@@ -53,7 +53,7 @@
                     </span>
                 </a>
                 
-                <form action="{{ route('charges.destroy', $charge->id) }}" method="POST" class="inline">
+                <form action="{{ route('admin.charges.destroy', $charge->id) }}" method="POST" class="inline">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="noselect" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette charge ?')">

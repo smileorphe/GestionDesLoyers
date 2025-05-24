@@ -37,34 +37,39 @@
                 </div>
             </div>
 
-            <div class="md:col-span-4 bg-white rounded-lg shadow-md p-6 flex items-center">
-                <div class="bg-purple-100 text-purple-600 p-3 rounded-full mr-4">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
-                        <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm9.707 5.707a1 1 0 00-1.414-1.414L9 12.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                    </svg>
+            <div class="md:col-span-4 bg-white rounded-lg shadow-md p-6">
+                <div class="flex items-center">
+                    <div class="bg-purple-100 text-purple-600 p-3 rounded-full mr-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-gray-500 text-sm">Factures</h3>
+                        <p class="text-xl font-bold text-gray-800">{{ $facturesCount }}</p>
+                    </div>
                 </div>
-                <div>
-                    <h3 class="text-gray-500 text-sm">Transactions</h3>
-                    <p class="text-xl font-bold text-gray-800">{{ $transactionsCount }}</p>
+                <div class="mt-4 pt-4 border-t border-gray-100">
+                    <p class="text-sm text-gray-500">Montant total</p>
+                    <p class="text-lg font-semibold text-purple-600">{{ number_format($totalFactures, 2, ',', ' ') }} Franc CFA</p>
                 </div>
             </div>
 
             <!-- Graphique des Dépenses Mensuelles -->
             <div class="md:col-span-6 bg-white rounded-lg shadow-md p-6">
-                <h3 class="text-lg font-semibold mb-4">Dépenses Mensuelles</h3>
+                <h3 class="text-lg font-semibold mb-4 text-black">Dépenses Mensuelles</h3>
                 <canvas id="monthlyExpensesChart" class="w-full h-64"></canvas>
             </div>
 
             <!-- Graphique des Charges -->
             <div class="md:col-span-6 bg-white rounded-lg shadow-md p-6">
-                <h3 class="text-lg font-semibold mb-4">Répartition des Charges</h3>
+                <h3 class="text-lg font-semibold mb-4 text-black">Répartition des Charges</h3>
                 <canvas id="chargesChart" class="w-full h-64"></canvas>
             </div>
 
             <!-- Graphique des Transactions -->
             <div class="md:col-span-8 bg-white rounded-lg shadow-md p-6">
-                <h3 class="text-lg font-semibold mb-4">Historique des Transactions</h3>
+                <h3 class="text-lg font-semibold mb-4 text-black">Historique des Transactions</h3>
                 <canvas id="transactionsChart" class="w-full h-64"></canvas>
             </div>
 
@@ -87,6 +92,7 @@
 </div>
 
 @push('scripts')
+@vite(['resources/js/app.js'])
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {

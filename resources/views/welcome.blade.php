@@ -108,23 +108,42 @@
                     </a>
                 </div>
                 <div class="flex items-center space-x-3">
-                    @guest
+                    @auth
+                        <a href="{{ route('dashboard.redirect') }}" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-300">
+                            Tableau de Bord
+                        </a>
+                        <form method="POST" action="{{ route('logout') }}" class="inline">
+                            @csrf
+                            <button type="submit" class="ui-btn ui-btn-register">
+                                <span>Déconnexion</span>
+                            </button>
+                        </form>
+                    @else
                         <a href="{{ route('login') }}" class="ui-btn ui-btn-login">
                             <span>Connexion</span>
                         </a>
-                        <a href="{{ route('register') }}" class="ui-btn ui-btn-register">
-                            <span>Inscription</span>
-                        </a>
-                    @endguest
-                    @auth
-                        <a href="{{ route('dashboard') }}" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-300">
-                            Tableau de Bord
-                        </a>
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="ui-btn ui-btn-register">
+                                <span>Inscription</span>
+                            </a>
+                        @endif
                     @endauth
                 </div>
             </div>
         </div>
     </nav>
+
+    <div class="container mx-auto px-4 py-8">
+        <!-- Affichage des messages d'erreur -->
+        @if(session('error'))
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-6" role="alert">
+                <span class="block sm:inline">{{ session('error') }}</span>
+            </div>
+        @endif
+        
+        <div class="text-center py-8">
+            <h1 class="text-5xl font-bold text-gray-800 mb-6" style="margin-bottom: -100px;">Bienvenue sur Gestion Des Loyers</h1>
+    </div>
 
     <main class="container mx-auto mt-10 px-4">
         <div class="grid md:grid-cols-2 gap-8 items-center">

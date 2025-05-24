@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Message;
 
 class User extends Authenticatable
 {
@@ -21,8 +22,14 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+    ];
+    
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -34,15 +41,57 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
+     * Check if user has a specific role
+     * 
+     * @param string $role
+     * @return bool
      */
-    protected function casts(): array
+    public function hasRole($role): bool
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        return strtolower($this->role) === strtolower($role);
+    }
+
+    /**
+     * Get the messages sent by the user.
+     */
+    public function sentMessages()
+    {
+        return $this->hasMany(Message::class, 'from_user_id');
+    }
+
+    /**
+     * Get the messages received by the user.
+     */
+    public function receivedMessages()
+    {
+        return $this->hasMany(Message::class, 'to_user_id');
+    }
+
+    /**
+     * Get the user's unread messages.
+     */
+    public function unreadMessages()
+    {
+        return $this->receivedMessages()->where('is_read', false);
+    }
+    
+    /**
+     * Check if user is admin
+     * 
+     * @return bool
+     */
+    public function isAdmin(): bool
+    {
+        return $this->hasRole('admin');
+    }
+    
+    /**
+     * Check if user is regular user
+     * 
+     * @return bool
+     */
+    public function isUser(): bool
+    {
+        return $this->hasRole('user');
     }
 }

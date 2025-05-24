@@ -31,6 +31,34 @@
 - [ ] Calcul automatique des charges
 - [ ] Graphique de dépenses mensuelles
 
+## Espace Utilisateur
+- [ ] Système de notifications
+    - [ ] Notifications en temps réel
+    - [ ] Badges et alertes visuelles
+    - [ ] Historique des messages
+    - [ ] Marquage lu/non lu
+- [ ] Gestion des factures
+    - [ ] Liste chronologique avec filtres
+    - [ ] Recherche avancée
+    - [ ] Génération de QR Code
+        - [ ] Format PNG/SVG
+        - [ ] Partage direct
+    - [ ] Export PDF/CSV
+
+## Espace Administrateur
+- [ ] Gestion avancée des factures
+    - [ ] Formulaire avec validation temps réel
+    - [ ] Prévisualisation
+    - [ ] Sauvegarde automatique
+    - [ ] Actions groupées
+- [ ] Gestion des utilisateurs
+    - [ ] Gestion des droits
+    - [ ] Historique des actions
+- [ ] Tableau de bord analytique
+    - [ ] Graphiques de ventes
+    - [ ] Prévisions
+    - [ ] Export des données
+
 ## Sécurité
 - [x] Authentification utilisateur
     - [x] Formulaire de connexion
